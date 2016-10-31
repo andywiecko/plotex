@@ -13,5 +13,5 @@ To plotex nice figures:
 
 In `out` directory will be `out/example.pdf` with your figure :)
 
-![GitHub Logo](out/example.pdf)
+![GitHub Logo](example.png)
 
