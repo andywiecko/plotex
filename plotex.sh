@@ -17,11 +17,10 @@ then
 		gnuplot   -e "set term epslatex color solid  font ',8' header '\\${fontsize}'; set output '${PLOTEXDIR}src/fig1.tex'" $1
 	else
 		gnuplot   -e "set term epslatex color solid  font ',8' header '\\tiny'; set output '${PLOTEXDIR}src/fig1.tex'" $1
-
 	fi
 		
 	jobname="${1%.*}"
-	pdflatex  -shell-escape --jobname=$jobname ${PLOTEXDIR}src/plot.tex 
+	pdflatex  -interaction=batchmode -shell-escape --jobname=$jobname ${PLOTEXDIR}src/plot.tex 
 	rm ${jobname}.aux
 	rm ${jobname}.log
 	evince ${jobname}.pdf &
