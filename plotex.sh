@@ -14,9 +14,9 @@ then
 	if [ $ARGC -gt 1 ]
 	then
 		fontsize=$2
-		gnuplot   -e "set term epslatex color solid  font ',8' header '\\${fontsize}'; set output '${PLOTEXDIR}src/fig1.tex'" $1
+		gnuplot   -e "set term epslatex color dashed  font ',8' header '\\${fontsize}'; set output '${PLOTEXDIR}src/fig1.tex'" $1
 	else
-		gnuplot   -e "set term epslatex color solid  font ',8' header '\\tiny'; set output '${PLOTEXDIR}src/fig1.tex'" $1
+		gnuplot   -e "set term epslatex color dashed  font ',8' header '\\tiny'; set output '${PLOTEXDIR}src/fig1.tex'" $1
 	fi
 		
 	jobname="${1%.*}"
