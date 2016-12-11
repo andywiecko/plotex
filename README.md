@@ -4,14 +4,13 @@ Requirements:
 * `evince` (to open .pdf)
 
 
-
-To plotex nice figures:
+After install to plotex nice figures:
 
 ~~~
-./plotex.sh example.plt       
+plotex example.plt       
 ~~~
 
-In `out` directory will be `out/example.pdf` with your figure :)
+In current directory will be `example.pdf` with your figure :)
 
 ![GitHub Logo](src/example.png)
 
