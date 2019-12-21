@@ -1,10 +1,9 @@
 #!/bin/python3
 
-import src.Plotex as ptx
+import src.Plotex as Plotex
 
 def main():
-    plotex = ptx.Plotex()
-    plotex.PlotexParser()
+    Plotex.Plotex()
 
 if __name__=="__main__":
     main()
