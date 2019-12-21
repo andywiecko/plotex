@@ -17,6 +17,11 @@ class Argv():
                 "-v", "--verbose",
                 action="store_true",
                 help="increase output verbosity")
+        self.__parser.add_argument(
+                "-p", "--profile",
+                type=str,
+                default='default',
+                help="increase output verbosity")
    
     def Parse(self):
         self.__args = self.__parser.parse_args()

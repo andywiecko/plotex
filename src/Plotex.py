@@ -27,7 +27,7 @@ set output 'test.tex'
         scriptLoader = ScriptLoader.ScriptLoader(args.filename)
         script = scriptLoader.GetScript()
     
-        profileLoader = ProfileLoader.ProfileLoader('default')
+        profileLoader = ProfileLoader.ProfileLoader(args.profile)
         profile = profileLoader.Load() 
         terminalSettings = profile.GetTerminalSettings()
         plotSettings = profile.GetPlotSettings()
