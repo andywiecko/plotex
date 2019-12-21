@@ -1,0 +1,22 @@
+__author__ = "Andrzej Więckowski"
+__copyright__ = "Copyright 2019, The Cogent Project"
+__license__ = "GNU"
+__version__ = "2.0.0"
+__email__ = "andrzej.wieckowski@pwr.edu.pl"
+
+import src.Argv as Argv
+import src.ScriptParser as ScriptParser
+import src.GnuplotRunner as GnuplotRunner
+import src.LatexRunner as LatexRunner
+
+class Plotex:
+
+    def __init__(self):
+        argv = Argv.Argv()
+        args = argv.GetArgs()
+   
+        ScriptParser.ScriptParser(args)
+        GnuplotRunner.GnuplotRunner()
+        LatexRunner.LatexRunner()
+
+
