@@ -3,7 +3,8 @@
 import src.Plotex as ptx
 
 def main():
-    ptx.PlotexParser()
+    plotex = ptx.Plotex()
+    plotex.PlotexParser()
 
 if __name__=="__main__":
     main()

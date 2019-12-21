@@ -1,2 +1,3 @@
 
-shebang="#!/bin/python3"
+# gnuplot shebang
+shebang="#!/bin/gnuplot"
