@@ -6,8 +6,8 @@ __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
 import src.PlotexSettings as Settings
 import src.Argv as Argv
-import src.ScriptLoader as Loader
-
+import src.ScriptLoader as ScriptLoader
+import src.ProfileLoader as ProfileLoader
 class Plotex():
     pass
 
@@ -19,8 +19,13 @@ def PlotexParser():
     argv = Argv.Argv()
     args = argv.GetArgs()
 
-    loader = Loader.ScriptLoader(args.filename)
-    script = loader.GetScript()
+    scriptLoader = ScriptLoader.ScriptLoader(args.filename)
+    script = scriptLoader.GetScript()
+
+    profileLoader = ProfileLoader.ProfileLoader('default')
+    profile = profileLoader.Load() 
+    terminalSettings = profile.GetTerminalSettings()
+    plotSettings = profile.GetPlotSettings()
 
     gnuplotHeaderSettings=\
 r"""{shebang}
@@ -36,9 +41,9 @@ set output 'test.tex'
     
     gnuplotHeaderSettings = gnuplotHeaderSettings.format(
             shebang=Settings.shebang,
-            terminal="cairolatex",
-            terminalOptions="",
-            header=r"'\usepackage{mathptmx}'")
+            terminal=terminalSettings['terminal'],
+            terminalOptions=terminalSettings['terminalOptions'],
+            header=terminalSettings['header'])
     
 
     print(gnuplotHeaderSettings)

@@ -1,11 +1,13 @@
-
 import argparse
 
 class Argv():
 
-    __args = argparse.Namespace()
-    __parser = argparse.ArgumentParser()
-        
+    def __init__(self):
+        self.__args = argparse.Namespace()
+        self.__parser = argparse.ArgumentParser()
+        self.ParserArguments()
+        self.Parse()
+
     def ParserArguments(self):
         self.__parser.add_argument(
                 "filename",
@@ -19,12 +21,5 @@ class Argv():
     def Parse(self):
         self.__args = self.__parser.parse_args()
 
-    def __init__(self):
-        self.ParserArguments()
-        self.Parse()
-
     def GetArgs(self):
         return self.__args
-
-#argv = Argv()
-#print(argv.GetArgs())
