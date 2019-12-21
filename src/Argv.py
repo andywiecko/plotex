@@ -21,10 +21,10 @@ class Argv():
 
     def __init__(self):
         self.ParserArguments()
+        self.Parse()
 
     def GetArgs(self):
         return self.__args
 
 #argv = Argv()
-#argv.Parse()
 #print(argv.GetArgs())
