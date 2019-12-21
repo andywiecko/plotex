@@ -17,8 +17,9 @@ Check for the typos!\
     def Load(self):
         try:
             settings = importlib.import_module('profiles.'+self.__profileName, package=None)
-            profile = Profile.Profile(settings.terminalSettings,settings.plotSettings)
-            return profile
         except ImportError:
             print(self.__Info())
             sys.exit(1)
+        
+        profile = Profile.Profile(settings.terminalSettings,settings.plotSettings)
+        return profile
