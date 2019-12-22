@@ -29,7 +29,8 @@ Check for the typos!\
         if args.append:
             terminalSettings['header'] += args.append
 
-
+        if args.replace:
+            terminalSettings['header'] = args.replace
 
         profile = Profile.Profile(terminalSettings, plotSettings)
         return profile

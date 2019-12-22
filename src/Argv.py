@@ -22,17 +22,19 @@ class Argv():
                 type=str,
                 default='default',
                 help="select profile module")
-        self.__parser.add_argument(
+        group = self.__parser.add_mutually_exclusive_group()
+        group.add_argument(
                 "-a", "--append",
                 type=str,
                 nargs='+',
                 default='',
                 help="append terminal header options")
-        #self.__parser.add_argument(
-        #        "-r", "--replace",
-        #        type=str,
-        #        default='',
-        #        help="replace terminal options")
+        group.add_argument(
+                "-r", "--replace",
+                type=str,
+                nargs='*',
+                default='',
+                help="replace terminal header options")
         self.__parser.add_argument(
                 "-t", "--terminal",
                 type=str,
