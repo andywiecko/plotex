@@ -14,7 +14,7 @@ class Plotex:
     def __init__(self):
         argv = Argv.Argv()
         args = argv.GetArgs()
-   
+
         ScriptParser.ScriptParser(args)
         GnuplotRunner.GnuplotRunner()
         LatexRunner.LatexRunner()

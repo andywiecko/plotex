@@ -22,7 +22,13 @@ class ScriptParser:
 
     def __Parse(self):
         profile = self.__LoadProfile(self.__args.profile)
+        if self.__args.display:
+            print(profile)
+
         terminalSettings = profile.GetTerminalSettings()
+        if self.__args.terminal:
+            terminalSettings['terminal'] = self.__args.terminal
+
         plotSettings = profile.GetPlotSettings()
         script = self.__LoadScript(self.__args.filename)
  
