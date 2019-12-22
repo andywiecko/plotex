@@ -1,8 +1,15 @@
 
 terminalSettings = { 
         'terminal' : 'cairolatex',
-        'terminalOptions' : '',
-        'header' : r"'\usepackage{mathptmx}'"
+        'terminalOptions' : ['standalone'],
+        'header' : [
+            r'\\usepackage[T1]{fontenc}',
+            r'\\usepackage{mathptmx}',
+            r'\\usepackage{times}'
+            ]
         }
 
-plotSettings = ['set colorsequence classic','set key noautotitle']
+plotSettings = [
+        'set colorsequence classic',
+        'set key noautotitle'
+        ]

@@ -21,8 +21,25 @@ class Argv():
                 "-p", "--profile",
                 type=str,
                 default='default',
-                help="increase output verbosity")
-   
+                help="select profile module")
+        self.__parser.add_argument(
+                "-a", "--append",
+                type=str,
+                default='',
+                help="append terminal options")
+        self.__parser.add_argument(
+                "-r", "--replace",
+                type=str,
+                default='',
+                help="replace terminal options")
+        self.__parser.add_argument(
+                "-t", "--termial",
+                type=str,
+                default='',
+                help="set terminal")
+ 
+        
+
     def Parse(self):
         self.__args = self.__parser.parse_args()
 
