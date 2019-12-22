@@ -8,7 +8,7 @@ class ScriptLoader:
         scriptFile.close()
 
     def __init__(self,filename):
-        self.__filename = Settings.plotexPath+'/'+ filename
+        self.__filename = Settings.localPath+'/'+ filename
         self.__script = ''
         self.Load()
 

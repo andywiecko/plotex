@@ -25,5 +25,5 @@ class Plotex:
         # .tex -> .pdf
         if not args.ignore:
             LatexRunner.LatexRunner()
-            Pdfcopier.Pdfcopier()
+            Pdfcopier.Pdfcopier(args)
 

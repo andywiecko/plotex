@@ -2,7 +2,7 @@
 class ScriptBody:
     def __init__(self,script):
 
-        self.__body = "# gnuplot script loaded by plotex"
+        self.__body = "# gnuplot script loaded by plotex\n"
         self.__Body(script)
         
     def __Body(self,script):
