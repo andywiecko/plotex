@@ -22,11 +22,12 @@ class Argv():
                 type=str,
                 default='default',
                 help="select profile module")
-        #self.__parser.add_argument(
-        #        "-a", "--append",
-        #        type=str,
-        #        default='',
-        #        help="append terminal options")
+        self.__parser.add_argument(
+                "-a", "--append",
+                type=str,
+                nargs='+',
+                default='',
+                help="append terminal header options")
         #self.__parser.add_argument(
         #        "-r", "--replace",
         #        type=str,

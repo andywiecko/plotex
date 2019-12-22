@@ -14,7 +14,7 @@ class ScriptParser:
    
     def __LoadProfile(self,profileName):
         profileLoader = ProfileLoader.ProfileLoader(profileName)
-        return profileLoader.Load() 
+        return profileLoader.Load(self.__args) 
 
     def __SaveScript(self,glued):
         scriptSaver = ScriptSaver.ScriptSaver()
@@ -26,9 +26,6 @@ class ScriptParser:
             print(profile)
 
         terminalSettings = profile.GetTerminalSettings()
-        if self.__args.terminal:
-            terminalSettings['terminal'] = self.__args.terminal
-
         plotSettings = profile.GetPlotSettings()
         script = self.__LoadScript(self.__args.filename)
  

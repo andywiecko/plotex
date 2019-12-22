@@ -14,12 +14,22 @@ Check for the typos!\
 """
         return info
 
-    def Load(self):
+    def Load(self,args):
         try:
             settings = importlib.import_module('profiles.'+self.__profileName, package=None)
         except ImportError:
             print(self.__Info())
             sys.exit(1)
         
-        profile = Profile.Profile(settings.terminalSettings,settings.plotSettings)
+        terminalSettings = settings.terminalSettings
+        plotSettings = settings.plotSettings
+        if args.terminal:
+            terminalSettings['terminal'] = args.terminal
+
+        if args.append:
+            terminalSettings['header'] += args.append
+
+
+
+        profile = Profile.Profile(terminalSettings, plotSettings)
         return profile
