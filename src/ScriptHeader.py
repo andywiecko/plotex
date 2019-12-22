@@ -6,7 +6,7 @@ class ScriptHeader:
         self.__header = r"""{shebang}
 # terminal settings parsed by plotex
 set term {terminal} {terminalOptions} header "{header}"
-set output '{tmpfile}.tex' 
+set output '{plotexPath}/{output}/{tmpfile}.tex' 
 """
         self.__Header(terminalSettings)
 
@@ -17,7 +17,9 @@ set output '{tmpfile}.tex'
                 tmpfile = Settings.tmpfile,
                 terminal = terminalSettings['terminal'],
                 terminalOptions = ' '.join(terminalSettings['terminalOptions']),
-                header = "\\n".join(terminalSettings['header']))
+                header = "\\n".join(terminalSettings['header']),
+                output = Settings.output,
+                plotexPath = Settings.plotexPath)
 
     def GetHeader(self,args):
         if args.ignore:

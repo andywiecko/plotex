@@ -8,6 +8,7 @@ import src.Argv as Argv
 import src.ScriptParser as ScriptParser
 import src.GnuplotRunner as GnuplotRunner
 import src.LatexRunner as LatexRunner
+import src.Pdfcopier as Pdfcopier
 
 class Plotex:
 
@@ -24,5 +25,5 @@ class Plotex:
         # .tex -> .pdf
         if not args.ignore:
             LatexRunner.LatexRunner()
-
+            Pdfcopier.Pdfcopier()
 

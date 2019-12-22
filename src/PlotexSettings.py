@@ -2,8 +2,12 @@
 # gnuplot shebang
 shebang = "#!/bin/gnuplot"
 
-tmpfile = 'output/tmp'
+localPath = ''
+plotexPath = ''
+
+tmpfile = 'tmp'
+output = 'output'
 
 # LaTeX Settings
 latexCompiler = 'pdflatex'
-latexFlags = '-interaction=batchmode -shell-escape --output-dir output/'
+latexFlags = '-interaction=batchmode -shell-escape'

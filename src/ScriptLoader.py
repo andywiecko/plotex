@@ -1,3 +1,4 @@
+import src.PlotexSettings as Settings
 
 class ScriptLoader:
 
@@ -7,7 +8,7 @@ class ScriptLoader:
         scriptFile.close()
 
     def __init__(self,filename):
-        self.__filename = filename
+        self.__filename = Settings.plotexPath+'/'+ filename
         self.__script = ''
         self.Load()
 
