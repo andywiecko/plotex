@@ -19,5 +19,8 @@ set output '{tmpfile}.tex'
                 terminalOptions = ' '.join(terminalSettings['terminalOptions']),
                 header = "\\n".join(terminalSettings['header']))
 
-    def GetHeader(self):
-        return self.__header
+    def GetHeader(self,args):
+        if args.ignore:
+            return ''
+        else:
+            return self.__header

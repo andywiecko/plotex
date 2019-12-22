@@ -14,9 +14,15 @@ class Plotex:
     def __init__(self):
         argv = Argv.Argv()
         args = argv.GetArgs()
-
+    
+        # generating script -> .plt
         ScriptParser.ScriptParser(args)
+        
+        # .plt -> .tex
         GnuplotRunner.GnuplotRunner()
-        LatexRunner.LatexRunner()
+
+        # .tex -> .pdf
+        if not args.ignore:
+            LatexRunner.LatexRunner()
 
 

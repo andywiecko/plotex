@@ -13,10 +13,6 @@ class Argv():
                 "filename",
                 type=str,
                 help="gnuplot script filename to parse via plotex")
-        #self.__parser.add_argument(
-        #        "-v", "--verbose",
-        #        action="store_true",
-        #        help="increase output verbosity")
         self.__parser.add_argument(
                 "-p", "--profile",
                 type=str,
@@ -44,10 +40,11 @@ class Argv():
                 "-d", "--display",
                 action='store_true',
                 help="display profile settings")
-        #self.__parser.add_argument(
-        #        "-i", "--ignore-latex",
-        #        action='store_true',
-        #        help="use default gnuplot terminal instead of terminal set by plotex")
+        self.__parser.add_argument(
+                "-i", "--ignore",
+                action='store_true',
+                help="use default gnuplot terminal provided by gnuplot\
+                settings instead of terminal set by plotex")
                 
 
     def Parse(self):

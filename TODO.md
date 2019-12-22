@@ -2,7 +2,7 @@
 
 * [!] install
 * ~[!] change "engine" to python3~
-* profiles
+* ~profiles~
 * ~setting packages in profiles~
 * ~parser~
 * requirements

@@ -29,7 +29,7 @@ class ScriptParser:
         plotSettings = profile.GetPlotSettings()
         script = self.__LoadScript(self.__args.filename)
  
-        scriptGlue = ScriptGlue.ScriptGlue(terminalSettings,plotSettings,script)
+        scriptGlue = ScriptGlue.ScriptGlue(terminalSettings,plotSettings,script,self.__args)
         glued = scriptGlue.GetGlue()
         self.__SaveScript(glued)
 

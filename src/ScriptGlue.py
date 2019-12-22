@@ -3,10 +3,10 @@ import src.ScriptHeader as ScriptHeader
 import src.ScriptSettingsSection as ScriptSettingsSection
 import src.ScriptBody as ScriptBody
 class ScriptGlue:
-    def __init__(self,terminalSettings,plotSettings,script):
+    def __init__(self,terminalSettings,plotSettings,script,args):
 
         scriptHeader = ScriptHeader.ScriptHeader(terminalSettings)
-        self.__header = scriptHeader.GetHeader()
+        self.__header = scriptHeader.GetHeader(args)
 
         scriptSettingsSection = ScriptSettingsSection.ScriptSettingsSection(plotSettings)
         self.__settings = scriptSettingsSection.GetSettings()
