@@ -2,7 +2,7 @@
 terminalSettings = { 
         'terminal' : 'cairolatex',
         'terminalOptions' : '',
-        'header' : r'\usepackage{mathptmx}'
+        'header' : r"'\usepackage{mathptmx}'"
         }
 
-plotSettings = ['set grid']
+plotSettings = ['set colorsequence classic','set key noautotitle']
