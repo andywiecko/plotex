@@ -8,14 +8,11 @@ __email__ = "andrzej.wieckowski@pwr.edu.pl"
 from src.Argv import Argv
 from src.ScriptParser import ScriptParser
 from src.GnuplotRunner import GnuplotRunner
+from src.TexPostProcessor import TexPostProcessor
 from src.LatexRunner import LatexRunner
 from src.Pdfcopier import Pdfcopier
 from src.Exiter import Exiter
 from src.Info import Info
-
-import sys
-import os
-from src.NameResolver import NameResolver
 
 class Plotex:
 
@@ -28,9 +25,10 @@ class Plotex:
     def Run(self):
         
         Info.Info() 
-        
+        args = self.__args
+
         # generating script -> .plt
-        ScriptParser(self.__args)
+        ScriptParser(args)
         Info.Verbose("Exiting Script Parser")
 
         # .plt -> .tex
@@ -39,16 +37,23 @@ class Plotex:
             Exiter.Exit("gnuplot does not exit successfully!")
         Info.Verbose("Exiting Gnuplot Runner")
 
-        # .tex post-processing
 
-        # .tex -> .pdf
-        if not self.__args.ignore:
+        if not args.ignore:
+            # .tex post-processing
+            if args.postprocess:
+                texPostProcessor = TexPostProcessor()
+                if texPostProcessor.PostProcess(args.postprocess):
+                    Exiter.Exit("TeX Post-Processor does not exit successfully!")
+                Info.Verbose("Exiting Tex Post-Processor") 
+
+            # .tex -> .pdf
             latexRunner = LatexRunner()
             if latexRunner.Run():
                 Exiter.Exit("LaTeX does not exit successfully!")
             Info.Verbose("Exiting LaTeX Runner")
-
-            pdfcopier = Pdfcopier(self.__args)
+            
+            # .pdf -> local path
+            pdfcopier = Pdfcopier(args)
             if pdfcopier.Copy():
                 Exiter.Exit("copying does not finished successfully!")
             Info.Verbose("Exiting Pdfcopier")

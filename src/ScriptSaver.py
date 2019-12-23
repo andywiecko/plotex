@@ -11,8 +11,11 @@ from src.Exiter import Exiter
 
 class ScriptSaver:
     
-    def __init__(self):
-        self.__filename = NameResolver.GetTmpfilePlt()
+    def __init__(self,ext='plt'):
+        if ext=='plt':
+            self.__filename = NameResolver.GetTmpfilePlt()
+        if ext=='tex':
+            self.__filename = NameResolver.GetTmpfileTex()
 
     def Save(self,script):
         try: 

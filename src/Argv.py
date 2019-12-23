@@ -56,6 +56,10 @@ class Argv():
                 "-v", "--verbose",
                 action='store_true',
                 help="increase output verbosity")
+        self.__parser.add_argument(
+                "-l", "--postprocess",
+                type=str,
+                help="add commands after \\begin{document}")
         
 
     def __Parse(self):

@@ -19,8 +19,9 @@ class ScriptParser:
 
     def __LoadScript(self,filename):
         scriptLoader = ScriptLoader(filename)
+        Info.Verbose("Local script `{}` loading...".format(filename))
         if not scriptLoader.Load():
-            Info.Verbose("Local script `{}` loaded".format(filename))
+            Info.Verbose("Local script `{}` loading completed!".format(filename))
         return scriptLoader.GetScript()
    
     def __LoadProfile(self,profileName):
@@ -29,8 +30,9 @@ class ScriptParser:
 
     def __SaveScript(self,glued):
         scriptSaver = ScriptSaver()
+        Info.Verbose("Parsed script saving...")
         if not scriptSaver.Save(glued):
-            Info.Verbose("Parsed script saved")
+            Info.Verbose("Parsed script saving completed")
 
     def __Parse(self):
         profile = self.__LoadProfile(self.__args.profile)
