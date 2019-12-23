@@ -7,19 +7,15 @@ __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
 import os
-import src.PlotexSettings as Settings
+from src.PathSetter import PathSetter
 from src.Plotex import Plotex
 
 def main():
 
     # setting path
     plotexPath = os.path.realpath(__file__)
-    plotexPath = plotexPath.split('/')
-    plotexPath = '/'.join(plotexPath[:-1])
-    localPath = os.getcwd()
-
-    Settings.localPath = localPath
-    Settings.plotexPath = plotexPath
+    pathSetter = PathSetter(plotexPath)
+    pathSetter.SetPath()
 
     plotex = Plotex()
     plotex.Run()
