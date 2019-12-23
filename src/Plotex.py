@@ -16,7 +16,11 @@ class Plotex:
     def __init__(self):
         self.__argv = Argv()
         self.__args = self.__argv.GetArgs()
-        
+       
+    @staticmethod
+    def Info():
+        print("This is ploTeX, Version",__version__,'(beta)')
+
     def Run(self):
         # generating script -> .plt
         ScriptParser(self.__args)
@@ -33,3 +37,4 @@ class Plotex:
             pdfcopier = Pdfcopier(self.__args)
             pdfcopier.Copy()
 
+        Plotex.Info() 
