@@ -7,9 +7,10 @@
 
 # Usage
 
-```bash
+```
 usage: plotex.py [-h] [-p PROFILE] [-a APPEND [APPEND ...] | -r
-                 [REPLACE [REPLACE ...]]] [-t TERMINAL] [-d] [-i]
+                 [REPLACE [REPLACE ...]]] [-t TERMINAL] [-d] [-i] [-v]
+                 [-l POSTPROCESS]
                  filename
 
 positional arguments:
@@ -28,6 +29,8 @@ optional arguments:
   -d, --display         display profile settings
   -i, --ignore          use default gnuplot terminal provided by gnuplot
                         settings instead of terminal set by plotex
+  -v, --verbose         increase output verbosity
+  -l POSTPROCESS, --postprocess POSTPROCESS
 ```
 
 # Examples
