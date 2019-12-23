@@ -47,6 +47,9 @@ class NameResolver:
     def GetLocalScript(filename):
         return NameResolver.GetLocalPath() + filename
 
+    @staticmethod
+    def GetProfilePath():
+        return Settings.plotexPath + '/profiles/'
 
     @staticmethod
     def ReplaceWithPdf(filename):

@@ -9,18 +9,29 @@ from src.Exiter import Exiter
 from src.Profile import Profile
 import importlib
 import sys
+import glob
 from src.Info import Info
+from src.NameResolver import NameResolver
+import src.PlotexSettings as Settings
 
 class ProfileLoader():
     def __init__(self,profileName):
         self.__profileName = profileName
+
+    def GetProfileList(self):
+        profiles = glob.glob(NameResolver.GetProfilePath()+"*.py")
+        profiles = [profile.split('/')[-1][:-3] for profile in profiles] 
+        init = '__init__'
+        if init in profiles: profiles.remove(init)
+        return '\n * '.join(profiles)
 
     def Load(self,args):
         try:
             settings = importlib.import_module('profiles.'+self.__profileName, package=None)
             Info.Verbose("Profile `{profile}` loaded".format(profile=self.__profileName))
         except ImportError:
-            Exiter.Exit("Error: Profile `{profile}` not found! Check for the typos!".format(profile=self.__profileName))
+            profileList = self.GetProfileList()
+            Exiter.Exit("Error: Profile `{profile}` not found! Check for the typos! \nProfiles avaliable:\n * {list}".format(profile=self.__profileName,list=profileList))
         
         terminalSettings = settings.terminalSettings
         plotSettings = settings.plotSettings
