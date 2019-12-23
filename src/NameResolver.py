@@ -16,9 +16,15 @@ class NameResolver:
         return ret
 
     @staticmethod
-    def GetOutput():
+    def GetOutputWithoutPID():
         ret = Settings.plotexPath + '/'
         ret += Settings.output + '/'
+        return ret
+
+    @staticmethod
+    def GetOutput():
+        ret = NameResolver.GetOutputWithoutPID()
+        ret += Settings.PID + '/'
         return ret
 
     @staticmethod

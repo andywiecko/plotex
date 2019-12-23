@@ -7,7 +7,7 @@ __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
 import os
 import src.PlotexSettings as Settings
-
+from src.NameResolver import NameResolver
 class PathSetter:
     def __init__(self,path):
 
@@ -18,4 +18,7 @@ class PathSetter:
         Settings.plotexPath = self.__plotexPath
         localPath = os.getcwd()
         Settings.localPath = localPath
+
+        Settings.PID = str(os.getpid())
+        os.system('mkdir -p '+NameResolver.GetOutput())
 

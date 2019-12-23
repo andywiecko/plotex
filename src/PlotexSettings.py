@@ -10,7 +10,7 @@ shebang = "#!/bin/gnuplot"
 
 localPath = ''
 plotexPath = ''
-
+PID = ''
 tmpfile = 'tmp'
 output = 'output'
 

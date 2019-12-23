@@ -11,6 +11,9 @@ from src.GnuplotRunner import GnuplotRunner
 from src.LatexRunner import LatexRunner
 from src.Pdfcopier import Pdfcopier
 
+import os
+from src.NameResolver import NameResolver
+
 class Plotex:
 
     def __init__(self):
@@ -21,6 +24,11 @@ class Plotex:
     def Info():
         print("This is ploTeX, Version",__version__,'(beta)')
 
+    @staticmethod
+    def Clean():
+        os.system('rm '+NameResolver.GetOutput()+'*')
+        os.system('rmdir '+NameResolver.GetOutput())
+ 
     def Run(self):
         # generating script -> .plt
         ScriptParser(self.__args)
@@ -37,4 +45,6 @@ class Plotex:
             pdfcopier = Pdfcopier(self.__args)
             pdfcopier.Copy()
 
+        Plotex.Clean()
         Plotex.Info() 
+                
