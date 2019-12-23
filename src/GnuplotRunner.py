@@ -7,8 +7,11 @@ __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
 import os
 import src.PlotexSettings as Settings
+import src.NameResolver as NameResolver
 
 class GnuplotRunner:
     def __init__(self):
         self.gnuplotCMD = 'gnuplot'
-        os.system(self.gnuplotCMD+' '+Settings.plotexPath + '/' + Settings.output+'/'+Settings.tmpfile+'.plt')
+        self.filename = NameResolver.NameResolver.GetTmpfilePlt()
+        CMD = ' '.join([self.gnuplotCMD,self.filename])
+        os.system(CMD)

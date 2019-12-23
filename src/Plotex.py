@@ -1,3 +1,4 @@
+
 __author__ = "Andrzej Więckowski"
 __copyright__ = "Copyright 2019"
 __license__ = "GNU"

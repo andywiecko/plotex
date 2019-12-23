@@ -6,6 +6,7 @@ __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
 import src.PlotexSettings as Settings
+import src.NameResolver as NameResolver
 
 class ScriptHeader:
     def __init__(self,terminalSettings):
@@ -13,7 +14,7 @@ class ScriptHeader:
         self.__header = r"""{shebang}
 # terminal settings parsed by plotex
 set term {terminal} {terminalOptions} header "{header}"
-set output '{plotexPath}/{output}/{tmpfile}.tex' 
+set output '{filename}' 
 """
         self.__Header(terminalSettings)
 
@@ -21,12 +22,10 @@ set output '{plotexPath}/{output}/{tmpfile}.tex'
         self.__header = \
                 self.__header.format(
                 shebang = Settings.shebang,
-                tmpfile = Settings.tmpfile,
+                filename = NameResolver.NameResolver.GetTmpfileTex(),
                 terminal = terminalSettings['terminal'],
                 terminalOptions = ' '.join(terminalSettings['terminalOptions']),
-                header = "\\n".join(terminalSettings['header']),
-                output = Settings.output,
-                plotexPath = Settings.plotexPath)
+                header = "\\n".join(terminalSettings['header']))
 
     def GetHeader(self,args):
         if args.ignore:

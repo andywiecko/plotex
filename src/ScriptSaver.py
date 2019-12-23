@@ -6,11 +6,14 @@ __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
 import src.PlotexSettings as Settings
+import src.NameResolver as NameResolver
 
 class ScriptSaver:
-    __filename = Settings.tmpfile+'.plt'
+    
+    def __init__(self):
+        self.__filename = NameResolver.NameResolver.GetTmpfilePlt()
 
     def Save(self,script):
-        scriptFile = open(Settings.plotexPath +'/'+ Settings.output+'/'+self.__filename, "w")
+        scriptFile = open(self.__filename, "w")
         scriptFile.write(script)
         scriptFile.close()
