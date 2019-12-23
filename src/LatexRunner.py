@@ -23,5 +23,5 @@ class LatexRunner:
             self.filename])
 
     def Run(self):
-        os.system(self.__CMD)
+        return os.system(self.__CMD)
 

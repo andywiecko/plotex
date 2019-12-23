@@ -22,4 +22,4 @@ class Pdfcopier:
                 localfile=self.filename)
 
     def Copy(self):
-        os.system(self.__CMD)
+        return os.system(self.__CMD)

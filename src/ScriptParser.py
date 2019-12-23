@@ -17,6 +17,7 @@ class ScriptParser:
 
     def __LoadScript(self,filename):
         scriptLoader = ScriptLoader(filename)
+        scriptLoader.Load()
         return scriptLoader.GetScript()
    
     def __LoadProfile(self,profileName):

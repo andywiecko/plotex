@@ -10,7 +10,9 @@ from src.ScriptParser import ScriptParser
 from src.GnuplotRunner import GnuplotRunner
 from src.LatexRunner import LatexRunner
 from src.Pdfcopier import Pdfcopier
+from src.Exiter import Exiter
 
+import sys
 import os
 from src.NameResolver import NameResolver
 
@@ -23,28 +25,31 @@ class Plotex:
     @staticmethod
     def Info():
         print("This is ploTeX, Version",__version__,'(beta)')
+        print(40*"=")
 
-    @staticmethod
-    def Clean():
-        os.system('rm '+NameResolver.GetOutput()+'*')
-        os.system('rmdir '+NameResolver.GetOutput())
- 
     def Run(self):
+        
+        Plotex.Info() 
+        
         # generating script -> .plt
         ScriptParser(self.__args)
         
         # .plt -> .tex
         gnuplotRunner = GnuplotRunner()
-        gnuplotRunner.Run()
+        if gnuplotRunner.Run():
+            Exiter.Exit()
+
+        # .tex post-processing
 
         # .tex -> .pdf
         if not self.__args.ignore:
             latexRunner = LatexRunner()
-            latexRunner.Run()
+            if latexRunner.Run():
+                Exiter.Exit()
 
             pdfcopier = Pdfcopier(self.__args)
-            pdfcopier.Copy()
+            if pdfcopier.Copy():
+                Exiter.Exit()
 
-        Plotex.Clean()
-        Plotex.Info() 
-                
+        Exiter.Clean()
+        return 0
