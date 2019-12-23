@@ -7,17 +7,19 @@ __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
 import os
 import src.PlotexSettings as Settings
-import src.NameResolver as NameResolver
+from src.NameResolver import NameResolver
 
 class Pdfcopier:
     def __init__(self,args):
        
-        outputfile = NameResolver.NameResolver.GetTmpfilePdf()
-        filename = NameResolver.NameResolver.GetLocalScript(args.filename)
-        filename = NameResolver.NameResolver.ReplaceWithPdf(filename)
+        self.outputfile = NameResolver.GetTmpfilePdf()
+        filename = NameResolver.GetLocalScript(args.filename)
+        self.filename = NameResolver.ReplaceWithPdf(filename)
 
-        copyCMD = 'cp {outfile} {localfile}'
-        copyCMD = copyCMD.format(
-                outfile=outputfile,
-                localfile=filename)
-        os.system(copyCMD)
+        self.__CMD = 'cp {outfile} {localfile}'
+        self.__CMD = self.__CMD.format(
+                outfile=self.outputfile,
+                localfile=self.filename)
+
+    def Copy(self):
+        os.system(self.__CMD)

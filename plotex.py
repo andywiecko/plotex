@@ -7,10 +7,12 @@ __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
 import os
-import src.Plotex as Plotex
 import src.PlotexSettings as Settings
+from src.Plotex import Plotex
 
 def main():
+
+    # setting path
     plotexPath = os.path.realpath(__file__)
     plotexPath = plotexPath.split('/')
     plotexPath = '/'.join(plotexPath[:-1])
@@ -19,8 +21,8 @@ def main():
     Settings.localPath = localPath
     Settings.plotexPath = plotexPath
 
-    Plotex.Plotex()
-
+    plotex = Plotex()
+    plotex.Run()
 
 if __name__=="__main__":
     main()

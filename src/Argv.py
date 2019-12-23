@@ -12,10 +12,10 @@ class Argv():
     def __init__(self):
         self.__args = argparse.Namespace()
         self.__parser = argparse.ArgumentParser()
-        self.ParserArguments()
-        self.Parse()
+        self.__ParserArguments()
+        self.__Parse()
 
-    def ParserArguments(self):
+    def __ParserArguments(self):
         self.__parser.add_argument(
                 "filename",
                 type=str,
@@ -54,7 +54,7 @@ class Argv():
                 settings instead of terminal set by plotex")
                 
 
-    def Parse(self):
+    def __Parse(self):
         self.__args = self.__parser.parse_args()
 
     def GetArgs(self):

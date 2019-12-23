@@ -6,7 +6,7 @@ __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
 import src.PlotexSettings as Settings
-import src.NameResolver as NameResolver
+from src.NameResolver import NameResolver
 
 class ScriptHeader:
     def __init__(self,terminalSettings):
@@ -22,7 +22,7 @@ set output '{filename}'
         self.__header = \
                 self.__header.format(
                 shebang = Settings.shebang,
-                filename = NameResolver.NameResolver.GetTmpfileTex(),
+                filename = NameResolver.GetTmpfileTex(),
                 terminal = terminalSettings['terminal'],
                 terminalOptions = ' '.join(terminalSettings['terminalOptions']),
                 header = "\\n".join(terminalSettings['header']))

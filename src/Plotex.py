@@ -5,26 +5,31 @@ __license__ = "GNU"
 __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
-import src.Argv as Argv
-import src.ScriptParser as ScriptParser
-import src.GnuplotRunner as GnuplotRunner
-import src.LatexRunner as LatexRunner
-import src.Pdfcopier as Pdfcopier
+from src.Argv import Argv
+from src.ScriptParser import ScriptParser
+from src.GnuplotRunner import GnuplotRunner
+from src.LatexRunner import LatexRunner
+from src.Pdfcopier import Pdfcopier
 
 class Plotex:
 
     def __init__(self):
-        argv = Argv.Argv()
-        args = argv.GetArgs()
-    
+        self.__argv = Argv()
+        self.__args = self.__argv.GetArgs()
+        
+    def Run(self):
         # generating script -> .plt
-        ScriptParser.ScriptParser(args)
+        ScriptParser(self.__args)
         
         # .plt -> .tex
-        GnuplotRunner.GnuplotRunner()
+        gnuplotRunner = GnuplotRunner()
+        gnuplotRunner.Run()
 
         # .tex -> .pdf
-        if not args.ignore:
-            LatexRunner.LatexRunner()
-            Pdfcopier.Pdfcopier(args)
+        if not self.__args.ignore:
+            latexRunner = LatexRunner()
+            latexRunner.Run()
+
+            pdfcopier = Pdfcopier(self.__args)
+            pdfcopier.Copy()
 

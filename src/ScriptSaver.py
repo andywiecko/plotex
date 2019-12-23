@@ -6,12 +6,12 @@ __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
 import src.PlotexSettings as Settings
-import src.NameResolver as NameResolver
+from src.NameResolver import NameResolver
 
 class ScriptSaver:
     
     def __init__(self):
-        self.__filename = NameResolver.NameResolver.GetTmpfilePlt()
+        self.__filename = NameResolver.GetTmpfilePlt()
 
     def Save(self,script):
         scriptFile = open(self.__filename, "w")

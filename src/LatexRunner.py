@@ -16,9 +16,12 @@ class LatexRunner:
         self.outputFlag = '--output-dir '
         self.outputFlag += NameResolver.NameResolver.GetOutput()
         self.filename = NameResolver.NameResolver.GetTmpfileTex()
-        cmd = ' '.join([
+        self.__CMD = ' '.join([
             self.latexCompiler,
             self.latexFlags,
             self.outputFlag,
             self.filename])
-        os.system(cmd)
+
+    def Run(self):
+        os.system(self.__CMD)
+

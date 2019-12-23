@@ -5,10 +5,10 @@ __license__ = "GNU"
 __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
-import src.ScriptLoader as ScriptLoader
-import src.ProfileLoader as ProfileLoader
-import src.ScriptGlue as ScriptGlue
-import src.ScriptSaver as ScriptSaver
+from src.ScriptLoader import ScriptLoader
+from src.ProfileLoader import ProfileLoader
+from src.ScriptGlue import ScriptGlue
+from src.ScriptSaver import ScriptSaver
 
 class ScriptParser:
     def __init__(self,args):
@@ -16,15 +16,15 @@ class ScriptParser:
         self.__Parse()
 
     def __LoadScript(self,filename):
-        scriptLoader = ScriptLoader.ScriptLoader(filename)
+        scriptLoader = ScriptLoader(filename)
         return scriptLoader.GetScript()
    
     def __LoadProfile(self,profileName):
-        profileLoader = ProfileLoader.ProfileLoader(profileName)
+        profileLoader = ProfileLoader(profileName)
         return profileLoader.Load(self.__args) 
 
     def __SaveScript(self,glued):
-        scriptSaver = ScriptSaver.ScriptSaver()
+        scriptSaver = ScriptSaver()
         scriptSaver.Save(glued)
 
     def __Parse(self):
@@ -36,7 +36,7 @@ class ScriptParser:
         plotSettings = profile.GetPlotSettings()
         script = self.__LoadScript(self.__args.filename)
  
-        scriptGlue = ScriptGlue.ScriptGlue(terminalSettings,plotSettings,script,self.__args)
+        scriptGlue = ScriptGlue(terminalSettings,plotSettings,script,self.__args)
         glued = scriptGlue.GetGlue()
         self.__SaveScript(glued)
 

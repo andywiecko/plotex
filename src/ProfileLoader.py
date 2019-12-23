@@ -5,7 +5,7 @@ __license__ = "GNU"
 __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
-import src.Profile as Profile
+from src.Profile import Profile
 import importlib
 import sys
 
@@ -39,5 +39,5 @@ Check for the typos!\
         if args.replace:
             terminalSettings['header'] = args.replace
 
-        profile = Profile.Profile(terminalSettings, plotSettings)
+        profile = Profile(terminalSettings, plotSettings)
         return profile
