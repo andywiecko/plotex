@@ -3,9 +3,7 @@ terminalSettings = {
         'terminal' : 'cairolatex',
         'terminalOptions' : ['standalone','transparent'],
         'header' : [
-            r'\\usepackage[T1]{fontenc}',
-            r'\\usepackage{mathptmx}',
-            r'\\usepackage{times}'
+            r'\\usepackage[T1]{fontenc}'
             ]
         }
 

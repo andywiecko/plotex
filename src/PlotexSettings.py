@@ -17,3 +17,4 @@ output = 'output'
 # LaTeX Settings
 latexCompiler = 'pdflatex'
 latexFlags = '-interaction=batchmode -shell-escape'
+#latexFlags = '-shell-escape' 

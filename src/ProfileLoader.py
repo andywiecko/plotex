@@ -31,7 +31,7 @@ class ProfileLoader():
             Info.Verbose("Profile `{profile}` loaded".format(profile=self.__profileName))
         except ImportError:
             profileList = self.GetProfileList()
-            Exiter.Exit("Error: Profile `{profile}` not found! Check for the typos! \nProfiles avaliable:\n * {list}".format(profile=self.__profileName,list=profileList))
+            Exiter.Exit("Profile `{profile}` not found! Check for the typos! \nProfiles avaliable:\n * {list}".format(profile=self.__profileName,list=profileList))
         
         terminalSettings = settings.terminalSettings
         plotSettings = settings.plotSettings
