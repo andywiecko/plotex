@@ -5,6 +5,7 @@ __license__ = "GNU"
 __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
+from src.Info import Info
 from src.ScriptLoader import ScriptLoader
 from src.ProfileLoader import ProfileLoader
 from src.ScriptGlue import ScriptGlue
@@ -13,11 +14,13 @@ from src.ScriptSaver import ScriptSaver
 class ScriptParser:
     def __init__(self,args):
         self.__args = args
+        Info.Verbose("Script Parser initialization")
         self.__Parse()
 
     def __LoadScript(self,filename):
         scriptLoader = ScriptLoader(filename)
-        scriptLoader.Load()
+        if not scriptLoader.Load():
+            Info.Verbose("Local script `{}` loaded".format(filename))
         return scriptLoader.GetScript()
    
     def __LoadProfile(self,profileName):
@@ -26,7 +29,8 @@ class ScriptParser:
 
     def __SaveScript(self,glued):
         scriptSaver = ScriptSaver()
-        scriptSaver.Save(glued)
+        if not scriptSaver.Save(glued):
+            Info.Verbose("Parsed script saved")
 
     def __Parse(self):
         profile = self.__LoadProfile(self.__args.profile)
@@ -38,6 +42,8 @@ class ScriptParser:
         script = self.__LoadScript(self.__args.filename)
  
         scriptGlue = ScriptGlue(terminalSettings,plotSettings,script,self.__args)
+        Info.Verbose("Glueing...")
         glued = scriptGlue.GetGlue()
+        Info.Verbose("Glueing completed!")
         self.__SaveScript(glued)
 

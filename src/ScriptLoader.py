@@ -18,8 +18,7 @@ class ScriptLoader:
             scriptFile.close()
             return 0
         except IOError:
-            print("Error: File {filename} does not exist or there is no access avaliable!".format(filename=self.__filename))
-            Exiter.Exit()
+            Exiter.Exit("File {filename} does not exist or there is no access avaliable!".format(filename=self.__filename))
             return 1
 
     def __init__(self,filename):

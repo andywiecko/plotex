@@ -8,6 +8,7 @@ __email__ = "andrzej.wieckowski@pwr.edu.pl"
 import os
 import src.PlotexSettings as Settings
 from src.NameResolver import NameResolver
+from src.Info import Info
 
 class Pdfcopier:
     def __init__(self,args):
@@ -20,6 +21,8 @@ class Pdfcopier:
         self.__CMD = self.__CMD.format(
                 outfile=self.outputfile,
                 localfile=self.filename)
+
+        Info.Verbose("Pdfcopier initialization")
 
     def Copy(self):
         return os.system(self.__CMD)

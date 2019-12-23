@@ -11,6 +11,7 @@ from src.GnuplotRunner import GnuplotRunner
 from src.LatexRunner import LatexRunner
 from src.Pdfcopier import Pdfcopier
 from src.Exiter import Exiter
+from src.Info import Info
 
 import sys
 import os
@@ -21,23 +22,22 @@ class Plotex:
     def __init__(self):
         self.__argv = Argv()
         self.__args = self.__argv.GetArgs()
-       
-    @staticmethod
-    def Info():
-        print("This is ploTeX, Version",__version__,'(beta)')
-        print(40*"=")
+        if self.__args.verbose:
+            Info.SetVerbose()
 
     def Run(self):
         
-        Plotex.Info() 
+        Info.Info() 
         
         # generating script -> .plt
         ScriptParser(self.__args)
-        
+        Info.Verbose("Exiting Script Parser")
+
         # .plt -> .tex
         gnuplotRunner = GnuplotRunner()
         if gnuplotRunner.Run():
-            Exiter.Exit()
+            Exiter.Exit("gnuplot does not exit successfully!")
+        Info.Verbose("Exiting Gnuplot Runner")
 
         # .tex post-processing
 
@@ -45,11 +45,13 @@ class Plotex:
         if not self.__args.ignore:
             latexRunner = LatexRunner()
             if latexRunner.Run():
-                Exiter.Exit()
+                Exiter.Exit("LaTeX does not exit successfully!")
+            Info.Verbose("Exiting LaTeX Runner")
 
             pdfcopier = Pdfcopier(self.__args)
             if pdfcopier.Copy():
-                Exiter.Exit()
+                Exiter.Exit("copying does not finished successfully!")
+            Info.Verbose("Exiting Pdfcopier")
 
         Exiter.Clean()
         return 0

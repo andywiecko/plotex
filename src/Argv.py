@@ -52,10 +52,14 @@ class Argv():
                 action='store_true',
                 help="use default gnuplot terminal provided by gnuplot\
                 settings instead of terminal set by plotex")
-                
+        self.__parser.add_argument(
+                "-v", "--verbose",
+                action='store_true',
+                help="increase output verbosity")
+        
 
     def __Parse(self):
         self.__args = self.__parser.parse_args()
-
+        
     def GetArgs(self):
         return self.__args

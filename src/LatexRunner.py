@@ -7,20 +7,23 @@ __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
 import os
 import src.PlotexSettings as Settings
-import src.NameResolver as NameResolver
+from src.NameResolver import NameResolver
+from src.Info import Info
 
 class LatexRunner:
     def __init__(self):
         self.latexCompiler = Settings.latexCompiler
         self.latexFlags = Settings.latexFlags
         self.outputFlag = '--output-dir '
-        self.outputFlag += NameResolver.NameResolver.GetOutput()
-        self.filename = NameResolver.NameResolver.GetTmpfileTex()
+        self.outputFlag += NameResolver.GetOutput()
+        self.filename = NameResolver.GetTmpfileTex()
         self.__CMD = ' '.join([
             self.latexCompiler,
             self.latexFlags,
             self.outputFlag,
             self.filename])
+
+        Info.Verbose("Latex Runner initialization")
 
     def Run(self):
         return os.system(self.__CMD)

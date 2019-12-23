@@ -8,6 +8,7 @@ __email__ = "andrzej.wieckowski@pwr.edu.pl"
 from src.ScriptHeader import ScriptHeader
 from src.ScriptSettingsSection import ScriptSettingsSection
 from src.ScriptBody import ScriptBody
+
 class ScriptGlue:
     def __init__(self,terminalSettings,plotSettings,script,args):
 
@@ -19,7 +20,6 @@ class ScriptGlue:
     
         scriptBody = ScriptBody(script)
         self.__body = scriptBody.GetBody() 
-       
         
     def GetGlue(self):
         return "\n".join(

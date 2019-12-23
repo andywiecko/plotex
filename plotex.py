@@ -9,6 +9,7 @@ __email__ = "andrzej.wieckowski@pwr.edu.pl"
 import os
 from src.PathSetter import PathSetter
 from src.Plotex import Plotex
+from src.Info import Info
 
 def main():
 
@@ -19,8 +20,7 @@ def main():
 
     plotex = Plotex()
     if not plotex.Run():
-        print(40*"=")
-        print("ploTeX finished succesfully!")
+        Info.Finish()
 
 if __name__=="__main__":
     main()

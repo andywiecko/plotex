@@ -8,11 +8,13 @@ __email__ = "andrzej.wieckowski@pwr.edu.pl"
 import sys
 import os
 from src.NameResolver import NameResolver
+from src.bcolors import bcolors
 
 class Exiter:
     @staticmethod
-    def Exit():
-        print("ploTeX has encountered some problems")
+    def Exit(message=''):
+        if message!='': print(bcolors.FAIL+"Error:",message+bcolors.ENDC)
+        print(bcolors.FAIL+bcolors.BOLD+"ploTeX has encountered some problems"+bcolors.ENDC+bcolors.ENDC)
         print("Cleaning...")
         Exiter.Clean()
         print("Exiting...")
