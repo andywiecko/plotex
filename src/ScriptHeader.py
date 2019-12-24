@@ -26,6 +26,7 @@ set output '{filename}'
                 terminal = terminalSettings['terminal'],
                 terminalOptions = ' '.join(terminalSettings['terminalOptions']),
                 header = "\\n".join(terminalSettings['header']))
+        header = "\\n".join(terminalSettings['header'])
 
     def GetHeader(self,args):
         if args.ignore:

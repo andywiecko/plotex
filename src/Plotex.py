@@ -26,7 +26,7 @@ class Plotex:
         
         Info.Info() 
         args = self.__args
-
+        
         # generating script -> .plt
         ScriptParser(args)
         Info.Verbose("Exiting Script Parser")

@@ -126,15 +126,32 @@ Flag `-d` shows selected options loaded from profile after parsing the args
 plotex test.plt -d
 ```
 
+Option is very useful with `-a` and `-r` flags to check the result.
+
 ## LaTeX post-process
 
 After flag `-l` user can list the command which will be added after `\begin{document}` (see example below).
 
 Example:
 ```
-plotex test.plt -l \\tiny \\bfseries
+plotex test.plt -l '\tiny' '\bfseries'
 ```
 
 This command will affect the font in the entire plot (to `\tiny`) and change text font to boldfold type.
 Please note that `\bfseries` does not affect the mathfont!
 
+## Append the header
+
+Flag `-a` appends the header option loaded by the profile.
+E.g. if one needs to change the font to `ebgaramond` and load `tikz` package in selected plot, just use the following commang
+
+```
+plotex test.plt -a '\usepackage{ebgaramond}' '\usepackage{tikz}'
+```
+
+## Replace the header
+
+Flag `-r` works similar as `-a` option, but it replaces all header options loaded from profile.
+
+```
+plotex test.plt -r '\usepackage{lmodern}'

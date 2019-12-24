@@ -14,6 +14,10 @@ from src.Info import Info
 from src.NameResolver import NameResolver
 import src.PlotexSettings as Settings
 
+def ReplaceSlash(listOfArgs):
+    return '\\\\'.join('\n'.join(listOfArgs).split('\\')).split('\n')
+
+
 class ProfileLoader():
     def __init__(self,profileName):
         self.__profileName = profileName
@@ -39,10 +43,10 @@ class ProfileLoader():
             terminalSettings['terminal'] = args.terminal
 
         if args.append:
-            terminalSettings['header'] += args.append
+            terminalSettings['header'] += ReplaceSlash(args.append)
 
         if args.replace:
-            terminalSettings['header'] = args.replace
+            terminalSettings['header'] = ReplaceSlash(args.replace)
 
         profile = Profile(terminalSettings, plotSettings)
         return profile

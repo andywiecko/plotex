@@ -59,6 +59,7 @@ class Argv():
         self.__parser.add_argument(
                 "-l", "--postprocess",
                 type=str,
+                nargs='+',
                 help="add commands after \\begin{document}")
         
 

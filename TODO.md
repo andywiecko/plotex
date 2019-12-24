@@ -7,4 +7,5 @@
 * ~parser~
 * requirements
 * examples
+* ignore `set term` in gnuplot script
 * ~postprocessing (adding string after begin document)~

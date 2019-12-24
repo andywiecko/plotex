@@ -37,7 +37,7 @@ class TexPostProcessor:
             beginDoc = '\\begin{document}\n'
             if beginDoc in self.__tex:
                 indexBegin = self.__tex.index(beginDoc)
-                self.__tex.insert(indexBegin+1,append+'\n')
+                self.__tex.insert(indexBegin+1,'\n'.join(append)+'\n')
                 self.__tex =''.join(self.__tex)
             Info.Verbose("TeX post-processing completed!")
 
