@@ -89,6 +89,7 @@ plotex test.plt
 ```
 
 where `test.plt` is gnuplot script. 
+In the `test.plt` directory the corresponding `test.pdf` with LaTeX parsed plot will be produced.
 Please, do not use `set terminal` inside gnuplot script. 
 (**TODO** ignore `set terminal` in gnuplot script)
 
