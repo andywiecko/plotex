@@ -51,6 +51,9 @@ Dictionary `terminalSettings` should have 3 keys and corresponding values:
  * `terminalOptions` : gnuplot terminal options (e.g. `standalone`, `png`, ...)
  * `header` : list of TeX commands loaded in document preamble, i.e. before `\begin{document}`
 
+List `plotSettings` contains gnuplot commands loaded with the profile, e.g.
+ * `plotSettings = ['set grid']` will cause that every script run with the profile will have `set grid` gnuplot option by default. 
+
 ## Basic usage
 To run `plotex` type `plotex` in your terminal with name of the gnuplot script to interpret:
 
@@ -110,5 +113,28 @@ One can track what plotex is doing
 plotex test.plt -v
 ```
 
+## Display selected options
+
+Flag `-d` shows selected options loaded from profile after parsing the args
+
+ * terminal
+ * terminalOptions
+ * header
+ * plot Settings
+
+```
+plotex test.plt -d
+```
+
 ## LaTeX post-process
+
+After flag `-l` user can list the command which will be added after `\begin{document}` (see example below).
+
+Example:
+```
+plotex test.plt -l \\tiny \\bfseries
+```
+
+This command will affect the font in the entire plot (to `\tiny`) and change text font to boldfold type.
+Please note that `\bfseries` does not affect the mathfont!
 
