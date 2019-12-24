@@ -75,11 +75,11 @@ pause -1
 
 After running `gnuplot test.plt` (with `x11` gnuplot terminal as default) 
 
-<img src="Examples/example_gnuplot.png" width="500" >
+<img src="examples/example_gnuplot.png" width="500" >
 
 The same script run with plotex parser produces the following result:
 
-<img src="Examples/example_plotex.png" width="500" >
+<img src="examples/example_plotex.png" width="500" >
 
 
 To run `plotex` type `plotex` in your terminal with the name of gnuplot script to interpret:
