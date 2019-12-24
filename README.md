@@ -45,6 +45,14 @@ optional arguments:
 1. [Profiles](#profiles)
 2. [Basic usage](#basic)
 3. [Help](#help)
+4. [Setting the profiles](#setprofiles)
+5. [Changing the terminal](#terminal)
+6. [Ignoring plotex parser](#ignore)
+7. [Verbose](#verbose)
+8. [Display selected options](#display)
+9. [LaTeX post-process](#postprocess)
+10. [Append the header](#append)
+11. [Replace the header](#replace)
 
 ## Profiles <a name="profiles"></a> 
 
@@ -80,7 +88,8 @@ To see options avaliable in plotex use `-h` help flag
 plotex -h
 ```
 
-## Setting the profile
+## Setting the profile <a name="setprofiles"></a> 
+
 
 To change the profile use `-p` option
 
@@ -90,7 +99,8 @@ plotex test.plt -p cairolatex
 
 which will change `default` profile into `cairolatex`.
 
-## Changing the terminal
+## Changing the terminal <a name="terminal"></a> 
+
 
 To change the termianl use `-t` option
 
@@ -100,7 +110,8 @@ plotex test.plt -t epslatex
 
 which will change terminal set in `default` profilo into `epslatex` gnuplot terminal.
 
-## Ignoring plotex parser
+## Ignoring plotex parser <a name="ignore"></a> 
+
 
 To ignore `plotex` script use `-i` option
 
@@ -111,7 +122,8 @@ plotex test.plt -i
 Only gnuplot will run, without LaTeX compiler.
 If one does not use any `set term` in gnuplot script, the default gnuplot terminal will be used (most probably `x11` terminal or `wxt` depends on distribution).
 
-## Verbose
+## Verbose <a name="verbose"></a> 
+
 
 Option `-v` increases plotex output verbosity.
 One can track what plotex is doing
@@ -120,7 +132,8 @@ One can track what plotex is doing
 plotex test.plt -v
 ```
 
-## Display selected options
+## Display selected options <a name="display"></a> 
+
 
 Flag `-d` shows selected options loaded from profile after parsing the args
 
@@ -135,7 +148,8 @@ plotex test.plt -d
 
 Option is very useful with `-a` and `-r` flags to check the result.
 
-## LaTeX post-process
+## LaTeX post-process <a name="postprocess"></a> 
+
 
 After flag `-l` user can list the command which will be added after `\begin{document}` (see example below).
 
@@ -147,7 +161,8 @@ plotex test.plt -l '\tiny' '\bfseries'
 This command will affect the font in the entire plot (to `\tiny`) and change text font to boldfold type.
 Please note that `\bfseries` does not affect the mathfont!
 
-## Append the header
+## Append the header <a name="append"></a> 
+
 
 Flag `-a` appends the header option loaded by the profile.
 E.g. if one needs to change the font to `ebgaramond` and load `tikz` package in selected plot, just use the following commang
@@ -156,7 +171,8 @@ E.g. if one needs to change the font to `ebgaramond` and load `tikz` package in 
 plotex test.plt -a '\usepackage{ebgaramond}' '\usepackage{tikz}'
 ```
 
-## Replace the header
+## Replace the header <a name="replace"></a> 
+
 
 Flag `-r` works similar as `-a` option, but it replaces all header options loaded from profile.
 
