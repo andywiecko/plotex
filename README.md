@@ -41,7 +41,12 @@ optional arguments:
 
 # Examples
 
-## Profiles
+# Table of contents
+1. [Profiles](#profiles)
+2. [Basic usage](#basic)
+3. [Help](#help)
+
+## Profiles <a name="profiles"></a> 
 
 In `profiles` dir, user can save custom ploting profiles.
 To add new profile (or to modify the existing one) create a `file.py` containg dictionary `terminalSettings` and list `plotSettings`.
@@ -54,7 +59,8 @@ Dictionary `terminalSettings` should have 3 keys and corresponding values:
 List `plotSettings` contains gnuplot commands loaded with the profile, e.g.
  * `plotSettings = ['set grid']` will cause that every script run with the profile will have `set grid` gnuplot option by default. 
 
-## Basic usage
+## Basic usage <a name="basic"></a> 
+
 To run `plotex` type `plotex` in your terminal with name of the gnuplot script to interpret:
 
 ```
@@ -65,7 +71,8 @@ where `test.plt` is gnuplot script.
 Please, do not use `set terminal` inside gnuplot script. 
 (**TODO** ignore set terminal in gnuplot script)
 
-## Help
+## Help <a name="help"></a> 
+
 
 To see options avaliable in plotex use `-h` help flag
 
