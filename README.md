@@ -56,8 +56,8 @@ optional arguments:
 
 ## Profiles <a name="profiles"></a> 
 
-In `profiles` dir, user can save custom ploting profiles.
-To add new profile (or to modify the existing one) create a `file.py` containg dictionary `terminalSettings` and list `plotSettings`.
+In `profiles` dir, users can save custom plotting profiles.
+To add a new profile (or to modify the existing one) create a `file.py` containing dictionary `terminalSettings` and list `plotSettings`.
 Dictionary `terminalSettings` should have 3 keys and corresponding values:
 
  * `terminal` : name of gnuplot terminal
@@ -69,7 +69,7 @@ List `plotSettings` contains gnuplot commands loaded with the profile, e.g.
 
 ## Basic usage <a name="basic"></a> 
 
-To run `plotex` type `plotex` in your terminal with name of the gnuplot script to interpret:
+To run `plotex` type `plotex` in your terminal with the name of gnuplot script to interpret:
 
 ```
 plotex test.plt
@@ -82,7 +82,7 @@ Please, do not use `set terminal` inside gnuplot script.
 ## Help <a name="help"></a> 
 
 
-To see options avaliable in plotex use `-h` help flag
+To see options available in plotex use `-h` help flag
 
 ```
 plotex -h
@@ -102,13 +102,13 @@ which will change `default` profile into `cairolatex`.
 ## Changing the terminal <a name="terminal"></a> 
 
 
-To change the termianl use `-t` option
+To change the terminal use `-t` option
 
 ```
 plotex test.plt -t epslatex
 ```
 
-which will change terminal set in `default` profilo into `epslatex` gnuplot terminal.
+which will change terminal set in `default` profile into `epslatex` gnuplot terminal.
 
 ## Ignoring plotex parser <a name="ignore"></a> 
 
@@ -119,13 +119,13 @@ To ignore `plotex` script use `-i` option
 plotex test.plt -i
 ```
 
-Only gnuplot will run, without LaTeX compiler.
+Gnuplot will run, without the LaTeX compiler.
 If one does not use any `set term` in gnuplot script, the default gnuplot terminal will be used (most probably `x11` terminal or `wxt` depends on distribution).
 
 ## Verbose <a name="verbose"></a> 
 
 
-Option `-v` increases plotex output verbosity.
+The option `-v` increases plotex output verbosity.
 One can track what plotex is doing
 
 ```
@@ -146,7 +146,7 @@ Flag `-d` shows selected options loaded from profile after parsing the args
 plotex test.plt -d
 ```
 
-Option is very useful with `-a` and `-r` flags to check the result.
+The option is very useful with `-a` and `-r` flags to check the result.
 
 ## LaTeX post-process <a name="postprocess"></a> 
 
@@ -158,14 +158,14 @@ Example:
 plotex test.plt -l '\tiny' '\bfseries'
 ```
 
-This command will affect the font in the entire plot (to `\tiny`) and change text font to boldfold type.
-Please note that `\bfseries` does not affect the mathfont!
+This command will affect the font in the entire plot (to `\tiny`) and change the text font to bold fold type.
+Please note that `\bfseries` does not affect the math font!
 
 ## Append the header <a name="append"></a> 
 
 
 Flag `-a` appends the header option loaded by the profile.
-E.g. if one needs to change the font to `ebgaramond` and load `tikz` package in selected plot, just use the following commang
+E.g. if one needs to change the font to `ebgaramond` and load `tikz` package in the selected plot, just use the following command
 
 ```
 plotex test.plt -a '\usepackage{ebgaramond}' '\usepackage{tikz}'
@@ -174,7 +174,7 @@ plotex test.plt -a '\usepackage{ebgaramond}' '\usepackage{tikz}'
 ## Replace the header <a name="replace"></a> 
 
 
-Flag `-r` works similar as `-a` option, but it replaces all header options loaded from profile.
+Flag `-r` works similar as `-a` option, but it replaces all header options loaded from the profile.
 
 ```
 plotex test.plt -r '\usepackage{lmodern}'
