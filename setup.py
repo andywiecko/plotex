@@ -1,7 +1,7 @@
 
 
 print("Setup file has not been ready yet!")
-print("Use make instead")
+print("Use INSTALL.sh script instead")
 
 
 #from setuptools import setup,find_packages

@@ -1,9 +1,14 @@
 
 # Requirements
 
-* `GNUplot`
-* `pdflatex`
-* `python3`
+* `GNUplot` (v. 5.2+)
+* `pdflatex` (`texlive-full` is recommended)
+* `python3` (v. 3.6+)
+
+# Install
+
+To install plotex run `INSTALL.sh` script (with `sudo`).
+Python `setup.py` file is still WIP.
 
 # Usage
 
@@ -31,11 +36,22 @@ optional arguments:
                         settings instead of terminal set by plotex
   -v, --verbose         increase output verbosity
   -l POSTPROCESS, --postprocess POSTPROCESS
+                        add commands after \begin{document}
 ```
 
 # Examples
 
+## Profiles
+
+In `profiles` dir, user can save custom ploting profiles.
+To add new profile (or to modify the existing one) create a `file.py` containg dictionary `terminalSettings` and list `plotSettings`.
+Dictionary `terminalSettings` should have 3 keys and corresponding values:
+
+ * `terminal` : name of gnuplot terminal
+ * `terminalOptions` : gnuplot terminal options (e.g. `standalone`, `png`, ...)
+ * `header` : list of TeX commands loaded in document preamble, i.e. before `\begin{document}`
+
 ```bash
-python3 plotex.py test.plt -d -a '\\usepackage{times}' '\\usepackage[utf8]{inputenc}'
+python3 plotex.py test.plt '
 ```
 
