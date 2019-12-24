@@ -42,8 +42,8 @@ optional arguments:
 # Examples
 
 # Table of contents
-1. [Profiles](#profiles)
-2. [Basic usage](#basic)
+1. [Basic usage](#basic)
+2. [Profiles](#profiles)
 3. [Help](#help)
 4. [Setting the profiles](#setprofiles)
 5. [Changing the terminal](#terminal)
@@ -53,6 +53,45 @@ optional arguments:
 9. [LaTeX post-process](#postprocess)
 10. [Append the header](#append)
 11. [Replace the header](#replace)
+
+## Basic usage <a name="basic"></a> 
+
+Consider the following gnuplot script `test.plt`:
+
+```gnuplot
+
+set xr[-3:3]
+set yr[-3:3]
+set xlabel '$x$'
+set ylabel '$f(x)$'
+set key b r
+
+plot x t '$f(x) = x$',\
+  x**2 t '$f(x) = x^2$',\
+  x**3 t '$f(x) = x^2$'
+
+pause -1
+```
+
+After running `gnuplot test.plt` (with `x11` gnuplot terminal as default) 
+
+<img src="Examples/example_gnuplot.png" width="500" >
+
+The same script run with plotex parser produces the following result:
+
+<img src="Examples/example_plotex.png" width="500" >
+
+
+To run `plotex` type `plotex` in your terminal with the name of gnuplot script to interpret:
+
+```
+plotex test.plt
+```
+
+where `test.plt` is gnuplot script. 
+Please, do not use `set terminal` inside gnuplot script. 
+(**TODO** ignore set terminal in gnuplot script)
+
 
 ## Profiles <a name="profiles"></a> 
 
@@ -66,18 +105,6 @@ Dictionary `terminalSettings` should have 3 keys and corresponding values:
 
 List `plotSettings` contains gnuplot commands loaded with the profile, e.g.
  * `plotSettings = ['set grid']` will cause that every script run with the profile will have `set grid` gnuplot option by default. 
-
-## Basic usage <a name="basic"></a> 
-
-To run `plotex` type `plotex` in your terminal with the name of gnuplot script to interpret:
-
-```
-plotex test.plt
-```
-
-where `test.plt` is gnuplot script. 
-Please, do not use `set terminal` inside gnuplot script. 
-(**TODO** ignore set terminal in gnuplot script)
 
 ## Help <a name="help"></a> 
 
