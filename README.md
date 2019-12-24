@@ -90,7 +90,7 @@ plotex test.plt
 
 where `test.plt` is gnuplot script. 
 Please, do not use `set terminal` inside gnuplot script. 
-(**TODO** ignore set terminal in gnuplot script)
+(**TODO** ignore `set terminal` in gnuplot script)
 
 
 ## Profiles <a name="profiles"></a> 
