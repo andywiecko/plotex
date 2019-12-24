@@ -51,7 +51,64 @@ Dictionary `terminalSettings` should have 3 keys and corresponding values:
  * `terminalOptions` : gnuplot terminal options (e.g. `standalone`, `png`, ...)
  * `header` : list of TeX commands loaded in document preamble, i.e. before `\begin{document}`
 
-```bash
-python3 plotex.py test.plt '
+## Basic usage
+To run `plotex` type `plotex` in your terminal with name of the gnuplot script to interpret:
+
 ```
+plotex test.plt
+```
+
+where `test.plt` is gnuplot script. 
+Please, do not use `set terminal` inside gnuplot script. 
+(**TODO** ignore set terminal in gnuplot script)
+
+## Help
+
+To see options avaliable in plotex use `-h` help flag
+
+```
+plotex -h
+```
+
+## Setting the profile
+
+To change the profile use `-p` option
+
+```
+plotex test.plt -p cairolatex
+```
+
+which will change `default` profile into `cairolatex`.
+
+## Changing the terminal
+
+To change the termianl use `-t` option
+
+```
+plotex test.plt -t epslatex
+```
+
+which will change terminal set in `default` profilo into `epslatex` gnuplot terminal.
+
+## Ignoring plotex parser
+
+To ignore `plotex` script use `-i` option
+
+```
+plotex test.plt -i
+```
+
+Only gnuplot will run, without LaTeX compiler.
+If one does not use any `set term` in gnuplot script, the default gnuplot terminal will be used (most probably `x11` terminal or `wxt` depends on distribution).
+
+## Verbose
+
+Option `-v` increases plotex output verbosity.
+One can track what plotex is doing
+
+```
+plotex test.plt -v
+```
+
+## LaTeX post-process
 
