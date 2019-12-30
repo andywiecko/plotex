@@ -5,10 +5,10 @@ __license__ = "GNU"
 __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
-import sys
+simport sys
 import os
-from src.NameResolver import NameResolver
-from src.bcolors import bcolors
+from plotex.NameResolver import NameResolver
+from plotex.bcolors import bcolors
 
 class Exiter:
     @staticmethod

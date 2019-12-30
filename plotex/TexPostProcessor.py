@@ -5,10 +5,10 @@ __license__ = "GNU"
 __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
-from src.NameResolver import NameResolver
-from src.Exiter import Exiter
-from src.Info import Info
-from src.ScriptSaver import ScriptSaver
+from plotex.NameResolver import NameResolver
+from plotex.Exiter import Exiter
+from plotex.Info import Info
+from plotex.ScriptSaver import ScriptSaver
 
 class TexPostProcessor:
     def __init__(self):

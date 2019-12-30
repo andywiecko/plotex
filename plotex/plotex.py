@@ -7,9 +7,9 @@ __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
 import os
-from src.PathSetter import PathSetter
-from src.Plotex import Plotex
-from src.Info import Info
+from plotex.PathSetter import PathSetter
+from plotex.Plotex import Plotex
+from plotex.Info import Info
 
 def main():
 

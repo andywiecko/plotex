@@ -5,14 +5,14 @@ __license__ = "GNU"
 __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
-from src.Exiter import Exiter
-from src.Profile import Profile
+from plotex.Exiter import Exiter
+from plotex.Profile import Profile
 import importlib
 import sys
 import glob
-from src.Info import Info
-from src.NameResolver import NameResolver
-import src.PlotexSettings as Settings
+from plotex.Info import Info
+from plotex.NameResolver import NameResolver
+import plotex.PlotexSettings as Settings
 
 def ReplaceSlash(listOfArgs):
     return '\\\\'.join('\n'.join(listOfArgs).split('\\')).split('\n')

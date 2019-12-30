@@ -5,7 +5,7 @@ __license__ = "GNU"
 __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
-from src.bcolors import bcolors
+from plotex.bcolors import bcolors
 
 class Info:
 

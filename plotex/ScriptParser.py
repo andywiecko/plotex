@@ -5,11 +5,11 @@ __license__ = "GNU"
 __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
-from src.Info import Info
-from src.ScriptLoader import ScriptLoader
-from src.ProfileLoader import ProfileLoader
-from src.ScriptGlue import ScriptGlue
-from src.ScriptSaver import ScriptSaver
+from plotex.Info import Info
+from plotex.ScriptLoader import ScriptLoader
+from plotex.ProfileLoader import ProfileLoader
+from plotex.ScriptGlue import ScriptGlue
+from plotex.ScriptSaver import ScriptSaver
 
 class ScriptParser:
     def __init__(self,args):

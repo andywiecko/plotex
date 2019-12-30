@@ -5,9 +5,9 @@ __license__ = "GNU"
 __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
-from src.ScriptHeader import ScriptHeader
-from src.ScriptSettingsSection import ScriptSettingsSection
-from src.ScriptBody import ScriptBody
+from plotex.ScriptHeader import ScriptHeader
+from plotex.ScriptSettingsSection import ScriptSettingsSection
+from plotex.ScriptBody import ScriptBody
 
 class ScriptGlue:
     def __init__(self,terminalSettings,plotSettings,script,args):

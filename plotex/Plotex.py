@@ -5,14 +5,14 @@ __license__ = "GNU"
 __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
-from src.Argv import Argv
-from src.ScriptParser import ScriptParser
-from src.GnuplotRunner import GnuplotRunner
-from src.TexPostProcessor import TexPostProcessor
-from src.LatexRunner import LatexRunner
-from src.Pdfcopier import Pdfcopier
-from src.Exiter import Exiter
-from src.Info import Info
+from plotex.Argv import Argv
+from plotex.ScriptParser import ScriptParser
+from plotex.GnuplotRunner import GnuplotRunner
+from plotex.TexPostProcessor import TexPostProcessor
+from plotex.LatexRunner import LatexRunner
+from plotex.Pdfcopier import Pdfcopier
+from plotex.Exiter import Exiter
+from plotex.Info import Info
 
 class Plotex:
 
