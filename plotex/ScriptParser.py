@@ -7,7 +7,6 @@ __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
 from plotex.Info import Info
 from plotex.ScriptLoader import ScriptLoader
-from plotex.ProfileLoader import ProfileLoader
 from plotex.ScriptGlue import ScriptGlue
 from plotex.ScriptSaver import ScriptSaver
 from plotex import profiles
@@ -26,10 +25,6 @@ class ScriptParser:
         if not scriptLoader.Load():
             Info.Verbose("Local script `{}` loading completed!".format(filename))
         return scriptLoader.GetScript()
-   
-    def __LoadProfile(self,profileName):
-        profileLoader = ProfileLoader(profileName)
-        return profileLoader.Load(self.__args) 
 
     def __SaveScript(self,glued):
         scriptSaver = ScriptSaver()
@@ -45,7 +40,7 @@ class ScriptParser:
         terminalSettings = profile["terminalSettings"]
         plotSettings = profile["plotSettings"]
         script = self.__LoadScript(self.__args.filename)
-        
+
         scriptGlue = ScriptGlue(terminalSettings,plotSettings,script,self.__args)
         Info.Verbose("Glueing...")
         glued = scriptGlue.GetGlue()
