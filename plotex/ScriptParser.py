@@ -10,6 +10,9 @@ from plotex.ScriptLoader import ScriptLoader
 from plotex.ProfileLoader import ProfileLoader
 from plotex.ScriptGlue import ScriptGlue
 from plotex.ScriptSaver import ScriptSaver
+from plotex import profiles
+import yaml
+
 
 class ScriptParser:
     def __init__(self,args):
@@ -35,14 +38,14 @@ class ScriptParser:
             Info.Verbose("Parsed script saving completed")
 
     def __Parse(self):
-        profile = self.__LoadProfile(self.__args.profile)
+        profile = profiles.load_profile(self.__args.profile, self.__args)
         if self.__args.display:
-            print(profile)
+            print(yaml.dumps(profile))
 
-        terminalSettings = profile.GetTerminalSettings()
-        plotSettings = profile.GetPlotSettings()
+        terminalSettings = profile["terminalSettings"]
+        plotSettings = profile["plotSettings"]
         script = self.__LoadScript(self.__args.filename)
- 
+        
         scriptGlue = ScriptGlue(terminalSettings,plotSettings,script,self.__args)
         Info.Verbose("Glueing...")
         glued = scriptGlue.GetGlue()
