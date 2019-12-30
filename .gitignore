@@ -128,7 +128,10 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# PyCharm
+.idea/
 
+# Latex and plotex specific files
 tmp.plt
 *.pdf
 *.eps
@@ -147,5 +150,3 @@ tmp.plt
 *.cb
 *.cb2
 .*.lb
-
-

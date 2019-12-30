@@ -5,9 +5,9 @@ __license__ = "GNU"
 __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
-import src.PlotexSettings as Settings
-from src.NameResolver import NameResolver
-from src.Exiter import Exiter
+import plotex.PlotexSettings as Settings
+from plotex.NameResolver import NameResolver
+from plotex.Exiter import Exiter
 
 class ScriptLoader:
 

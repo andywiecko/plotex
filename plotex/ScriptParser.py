@@ -5,11 +5,13 @@ __license__ = "GNU"
 __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
-from src.Info import Info
-from src.ScriptLoader import ScriptLoader
-from src.ProfileLoader import ProfileLoader
-from src.ScriptGlue import ScriptGlue
-from src.ScriptSaver import ScriptSaver
+from plotex.Info import Info
+from plotex.ScriptLoader import ScriptLoader
+from plotex.ScriptGlue import ScriptGlue
+from plotex.ScriptSaver import ScriptSaver
+from plotex import profiles
+import yaml
+
 
 class ScriptParser:
     def __init__(self,args):
@@ -23,10 +25,6 @@ class ScriptParser:
         if not scriptLoader.Load():
             Info.Verbose("Local script `{}` loading completed!".format(filename))
         return scriptLoader.GetScript()
-   
-    def __LoadProfile(self,profileName):
-        profileLoader = ProfileLoader(profileName)
-        return profileLoader.Load(self.__args) 
 
     def __SaveScript(self,glued):
         scriptSaver = ScriptSaver()
@@ -35,14 +33,14 @@ class ScriptParser:
             Info.Verbose("Parsed script saving completed")
 
     def __Parse(self):
-        profile = self.__LoadProfile(self.__args.profile)
+        profile = profiles.load_profile(self.__args.profile, self.__args)
         if self.__args.display:
-            print(profile)
+            print(yaml.dumps(profile))
 
-        terminalSettings = profile.GetTerminalSettings()
-        plotSettings = profile.GetPlotSettings()
+        terminalSettings = profile["terminalSettings"]
+        plotSettings = profile["plotSettings"]
         script = self.__LoadScript(self.__args.filename)
- 
+
         scriptGlue = ScriptGlue(terminalSettings,plotSettings,script,self.__args)
         Info.Verbose("Glueing...")
         glued = scriptGlue.GetGlue()

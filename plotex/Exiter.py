@@ -7,8 +7,8 @@ __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
 import sys
 import os
-from src.NameResolver import NameResolver
-from src.bcolors import bcolors
+from plotex.NameResolver import NameResolver
+from plotex.bcolors import bcolors
 
 class Exiter:
     @staticmethod

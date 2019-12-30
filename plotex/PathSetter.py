@@ -6,8 +6,8 @@ __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
 import os
-import src.PlotexSettings as Settings
-from src.NameResolver import NameResolver
+import plotex.PlotexSettings as Settings
+from plotex.NameResolver import NameResolver
 class PathSetter:
     def __init__(self,path):
 

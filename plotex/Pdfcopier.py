@@ -6,9 +6,9 @@ __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
 import os
-import src.PlotexSettings as Settings
-from src.NameResolver import NameResolver
-from src.Info import Info
+import plotex.PlotexSettings as Settings
+from plotex.NameResolver import NameResolver
+from plotex.Info import Info
 
 class Pdfcopier:
     def __init__(self,args):
