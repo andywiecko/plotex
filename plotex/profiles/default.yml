@@ -1,0 +1,12 @@
+terminalSettings:
+  terminal: cairolatex
+  terminalOptions:
+    - standalone
+    - transparent
+  header:
+    - \\usepackage[T1]{fontenc}
+    - \\usepackage{mathptmx}
+    - \\usepackage{times}
+plotSettings:
+  - set colorsequence classic
+  - set key noautotitle
