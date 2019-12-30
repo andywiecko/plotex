@@ -5,7 +5,7 @@ __license__ = "GNU"
 __version__ = "2.0.0"
 __email__ = "andrzej.wieckowski@pwr.edu.pl"
 
-simport sys
+import sys
 import os
 from plotex.NameResolver import NameResolver
 from plotex.bcolors import bcolors
