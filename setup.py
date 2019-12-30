@@ -6,7 +6,7 @@ setup(
     description='a pip-installable package example',
     license='GNU',
     packages=find_packages(include=["plotex"]),
-    entry_points={"console_scripts": ["plotex=plotex.plotex.main"]},
+    entry_points={"console_scripts": ["plotex=plotex.plotex:main"]},
     author='Andrzej Więckowski',
     author_email='andrzej.wieckowski@pwr.edu.pl',
     keywords=['gnuplot', 'latex'],
